@@ -56,7 +56,14 @@
              fileList 指定文件列表
              list-type 指定预览组件的呈现方式
             -->
-            <el-upload class="upload-demo" :action="uploadURL" :on-preview="handlePreview" :on-remove="handleRemove" list-type="picture" :headers="headersObj" :on-success="handleSuccess">
+            <el-upload
+            class="upload-demo"
+            :action="uploadURL"
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            list-type="picture"
+            :headers="headersObj"
+            :on-success="handleSuccess">
               <el-button size="small" type="primary">点击上传</el-button>
             </el-upload>
           </el-tab-pane>
@@ -115,7 +122,7 @@ export default {
       // 静态参数列表数据
       onlyTableData: [],
       // 上传图片的URL地址
-      uploadURL: 'http://127.0.0.1:8888/api/private/v1/upload',
+      uploadURL: 'https://lianghj.top:8888/api/private/v1/upload',
       // 图片上传组件的headers请求头对象
       headersObj: {
         Authorization: window.sessionStorage.getItem('token')
@@ -181,9 +188,9 @@ export default {
     },
     // 点击图片预览时触发
     handlePreview(file) {
-      this.previewPath = file.response.data.url
+      this.previewPath = file.response.data.url.replace('http://127.0.0.1', 'https://lianghj.top')
       this.previewDialogVisible = true
-      console.log('预览图片', file)
+      console.log('预览图片', file.response.data.url)
     },
     // 处理移除图片的操作
     handleRemove(file) {
