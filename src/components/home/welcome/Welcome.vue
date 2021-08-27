@@ -10,6 +10,14 @@
       <h4>以前的小东西 :</h4>
       <ul>
         <li>
+          <img src="~@/assets/程序学习交流群聊二维码.png" alt="" />
+          <span>811481586 编程学习交流群 API文档,数据库,软件,PDF手册,chrome插件等等资料在群文件</span>
+        </li>
+        <li>
+          <a href="https://blog.csdn.net/weixin_46858768?spm=1000.2115.3001.5343" target="_blank">网易云音乐项目</a>
+          <span>根据API文档模仿的项目</span>
+        </li>
+        <li>
           <a href="https://blog.csdn.net/weixin_46858768?spm=1000.2115.3001.5343" target="_blank"> 博客</a>
           <span>CSDN博客 在学习时写的一些笔记</span>
         </li>
@@ -66,22 +74,21 @@ export default {
 
 <style lang="less" scoped>
 .welcome {
-  margin: 30px auto 0;
   font-size: 20px;
   text-align: center;
   color: pink;
   h3 {
-    margin: 50px auto 0;
+    margin: 0 auto 0;
     font-size: 30px;
   }
   .info {
-    margin: 15px 0 10px;
+    margin: 5px 0 10px;
     ul {
-      margin: 20px 0 0 150px;
+      margin: 5px 0 0 150px;
       li {
-        margin: 10px 0 50px;
+        margin: 5px 0 50px;
         text-align: left;
-        margin: 10px;
+        margin: 8px;
         color: black;
         a {
           text-align: center;
