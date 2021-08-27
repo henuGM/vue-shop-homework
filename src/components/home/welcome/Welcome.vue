@@ -14,7 +14,7 @@
           <span>811481586 编程学习交流群 API文档,数据库,软件,PDF手册,chrome插件等等资料在群文件</span>
         </li>
         <li>
-          <a href="https://blog.csdn.net/weixin_46858768?spm=1000.2115.3001.5343" target="_blank">网易云音乐项目</a>
+          <a href="https://lianghj.top" target="_blank">网易云音乐项目</a>
           <span>根据API文档模仿的项目</span>
         </li>
         <li>
