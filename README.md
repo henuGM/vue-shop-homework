@@ -4,7 +4,7 @@
 ```
 npm install
 ```
-![](../vue_shop/dist/img/程序学习交流群聊二维码.95c72334.png)
+![](/src/assets/程序学习交流群聊二维码.png)
 ### Compiles and hot-reloads for development
 ```
 npm run serve
