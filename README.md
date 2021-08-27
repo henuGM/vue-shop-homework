@@ -5,6 +5,9 @@
 npm install
 ```
 ![](/src/assets/程序学习交流群聊二维码.png)
+<div>811481586 编程学习交流群 API文档,数据库,软件,PDF手册,chrome插件等等资料在群文件</div>
+
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
