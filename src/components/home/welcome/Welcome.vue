@@ -1,18 +1,10 @@
 <template>
   <div class="welcome">
-    <h2>
-      Welcome
-    </h2>
-    <h3>
-      欢迎登录到电商后台管理系统!
-    </h3>
+    <h2>Welcome</h2>
+    <h3>欢迎登录到电商后台管理系统!</h3>
     <div class="info">
       <h4>以前的小东西 :</h4>
       <ul>
-        <li>
-          <img src="~@/assets/程序学习交流群聊二维码.png" alt="" />
-          <span>811481586 编程学习交流群 API文档,数据库,软件,PDF手册,chrome插件等等资料在群文件</span>
-        </li>
         <li>
           <a href="https://lianghj.top" target="_blank">网易云音乐项目</a>
           <span>根据API文档模仿的项目</span>
@@ -68,7 +60,7 @@
 
 <script>
 export default {
-  name: 'Welcome'
+  name: 'Welcome',
 }
 </script>
 
