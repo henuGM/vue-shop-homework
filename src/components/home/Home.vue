@@ -24,7 +24,11 @@
           :default-active="activePath"
         >
           <!-- 一级菜单 -->
-          <el-submenu :index="item.id + ''" v-for="item in menuList" :key="item.id">
+          <el-submenu
+            :index="item.id + ''"
+            v-for="item in menuList"
+            :key="item.id"
+          >
             <!-- 一级菜单的模板区域 -->
             <template slot="title">
               <!-- 图标 -->
@@ -33,7 +37,12 @@
               <span>{{ item.authName }}</span>
             </template>
             <!-- 二级菜单 -->
-            <el-menu-item :index="'/' + sunItem.path" v-for="sunItem in item.children" :key="sunItem.id" @click="saveActivePath('/' + sunItem.path)">
+            <el-menu-item
+              :index="'/' + sunItem.path"
+              v-for="sunItem in item.children"
+              :key="sunItem.id"
+              @click="saveActivePath('/' + sunItem.path)"
+            >
               <template slot="title">
                 <!-- 二级菜单的模板区域 -->
                 <i class="el-icon-menu"></i>
@@ -71,7 +80,7 @@ export default {
         145: 'iconfont icon-baobiao'
       },
       isCollapse: false, // 是否折叠属性
-      activePath: '',
+      activePath: '/welcome',
       welcome: {
         authName: '欢迎光临',
         id: 147,
@@ -91,7 +100,13 @@ export default {
   },
   created() {
     this.getMenuList()
-    this.activePath = window.sessionStorage.getItem('activePath')
+    console.log(this.activePath)
+    const path = window.sessionStorage.getItem('activePath')
+    if (path) {
+      this.activePath = path
+    } else {
+      this.activePath = '/welcome'
+    }
   },
   methods: {
     logout() {
