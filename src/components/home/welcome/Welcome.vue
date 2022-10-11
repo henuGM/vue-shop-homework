@@ -5,10 +5,16 @@
     <div class="info">
       <h4>以前的小东西 :</h4>
       <ul>
-        <li style="height: 50px">
+        <li>
           <a href="http://blog.lianghj.top" target="_blank"
             >个人博客 文章分享 vue3 前后端</a
           ><span>练习项目 开发中 ------------------</span>
+          QQ 交流群:
+          <img
+            style="height: 200px"
+            src="http://test.lianghj.top/picture/qr/qqq.jpg?x-oss-process=style/mystyle"
+            alt=""
+          />
         </li>
         <li>
           <a href="https://lianghj.top" target="_blank">网易云音乐项目</a
