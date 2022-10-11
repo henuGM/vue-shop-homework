@@ -4,7 +4,14 @@
     <!--    卡片视图-->
     <el-card>
       <!--      提示区-->
-      <el-alert title="添加商品信息" type="info" center :closable="false" show-icon> </el-alert>
+      <el-alert
+        title="添加商品信息"
+        type="info"
+        center
+        :closable="false"
+        show-icon
+      >
+      </el-alert>
       <!--      步骤条区-->
       <el-steps align-center :active="activeIndex - 0" finish-status="success">
         <el-step title="基本信息"></el-step>
@@ -15,8 +22,19 @@
         <el-step title="完成"></el-step>
       </el-steps>
       <!--      table --- > tab栏区域-->
-      <el-form :model="addForm" :rules="addFormRules" ref="addFormRef" label-position="top" label-width="100px">
-        <el-tabs :tab-position="'left'" v-model="activeIndex" :before-leave="beforeTabLevae" @tab-click="tabClicked">
+      <el-form
+        :model="addForm"
+        :rules="addFormRules"
+        ref="addFormRef"
+        label-position="top"
+        label-width="100px"
+      >
+        <el-tabs
+          :tab-position="'left'"
+          v-model="activeIndex"
+          :before-leave="beforeTabLevae"
+          @tab-click="tabClicked"
+        >
           <el-tab-pane label="基本信息" name="0">
             <el-form-item label="商品名称" prop="goods_name">
               <el-input v-model="addForm.goods_name"></el-input>
@@ -32,19 +50,38 @@
             </el-form-item>
             <!-- 级联选择器 -->
             <el-form-item label="商品分类" prop="goods_cat">
-              <el-cascader v-model="addForm.goods_cat" :options="cateList" :props="{ expandTrigger: 'hover', ...cateProps }" @change="handleChange"></el-cascader>
+              <el-cascader
+                v-model="addForm.goods_cat"
+                :options="cateList"
+                :props="{ expandTrigger: 'hover', ...cateProps }"
+                @change="handleChange"
+              ></el-cascader>
             </el-form-item>
           </el-tab-pane>
           <el-tab-pane label="商品参数" name="1">
             <!-- 渲染表单的item项 -->
-            <el-form-item :label="item.attr_name" v-for="item in manyTableData" :key="item.attr_id">
+            <el-form-item
+              :label="item.attr_name"
+              v-for="item in manyTableData"
+              :key="item.attr_id"
+            >
               <el-checkbox-group v-model="item.attr_vals">
-                <el-checkbox border :label="item" v-for="(item, i) in item.attr_vals" :key="i">{{ item }}</el-checkbox>
+                <el-checkbox
+                  border
+                  :label="item"
+                  v-for="(item, i) in item.attr_vals"
+                  :key="i"
+                  >{{ item }}</el-checkbox
+                >
               </el-checkbox-group>
             </el-form-item>
           </el-tab-pane>
           <el-tab-pane label="商品属性" name="2">
-            <el-form-item :label="item.attr_name" v-for="item in onlyTableData" :key="item.attr_id">
+            <el-form-item
+              :label="item.attr_name"
+              v-for="item in onlyTableData"
+              :key="item.attr_id"
+            >
               <el-input v-model="item.attr_vals"></el-input>
             </el-form-item>
           </el-tab-pane>
@@ -57,27 +94,37 @@
              list-type 指定预览组件的呈现方式
             -->
             <el-upload
-            class="upload-demo"
-            :action="uploadURL"
-            :on-preview="handlePreview"
-            :on-remove="handleRemove"
-            list-type="picture"
-            :headers="headersObj"
-            :on-success="handleSuccess">
+              class="upload-demo"
+              :action="uploadURL"
+              :on-preview="handlePreview"
+              :on-remove="handleRemove"
+              list-type="picture"
+              :headers="headersObj"
+              :on-success="handleSuccess"
+            >
               <el-button size="small" type="primary">点击上传</el-button>
             </el-upload>
           </el-tab-pane>
           <el-tab-pane label="商品内容" name="4">
             <!-- 富文本编辑器组件 Two-way Data-Binding -->
-            <quill-editor ref="myQuillEditor" v-model="addForm.goods_introduce" />
+            <quill-editor
+              ref="myQuillEditor"
+              v-model="addForm.goods_introduce"
+            />
             <!--            添加按钮-->
-            <el-button type="primary" class="AddBtn" @click="addShop">添加商品</el-button>
+            <el-button type="primary" class="AddBtn" @click="addShop"
+              >添加商品</el-button
+            >
           </el-tab-pane>
         </el-tabs>
       </el-form>
     </el-card>
     <!--    图片预览-->
-    <el-dialog title="图片预览" :visible.sync="previewDialogVisible" width="50%">
+    <el-dialog
+      title="图片预览"
+      :visible.sync="previewDialogVisible"
+      width="50%"
+    >
       <img :src="previewPath" alt="" class="perviewImg" />
     </el-dialog>
   </div>
@@ -156,7 +203,10 @@ export default {
     beforeTabLevae(activeName, oldActiveName) {
       // console.log('即将离开标签页的名字: ', oldActiveName)
       // console.log('即将进入标签页的名字: ', activeName)
-      if ((oldActiveName === '0' && this.addForm.goods_cat.length !== 3) || this.addForm.goods_name === '') {
+      if (
+        (oldActiveName === '0' && this.addForm.goods_cat.length !== 3) ||
+        this.addForm.goods_name === ''
+      ) {
         this.$message.error('请先选择商品分类! 或 填写商品名称')
         return false
       }
@@ -165,20 +215,30 @@ export default {
       // 证明访问的是动态列表
       if (this.activeIndex === '1') {
         console.log('动态参数')
-        const { data: res } = await this.$http.get(`categories/${this.cateId}/attributes`, {
-          params: { sel: 'many' }
-        })
+        const { data: res } = await this.$http.get(
+          `categories/${this.cateId}/attributes`,
+          {
+            params: { sel: 'many' }
+          }
+        )
         if (res.meta.status !== 200) {
           return this.$message.error('获取动态列表失败!')
         }
-        res.data.forEach(item => (item.attr_vals = item.attr_vals.length === 0 ? [] : item.attr_vals.split(' ')))
+        res.data.forEach(
+          item =>
+            (item.attr_vals =
+              item.attr_vals.length === 0 ? [] : item.attr_vals.split(' '))
+        )
         // console.log(res)
         this.manyTableData = res.data
       }
       if (this.activeIndex === '2') {
-        const { data: res } = await this.$http.get(`categories/${this.cateId}/attributes`, {
-          params: { sel: 'only' }
-        })
+        const { data: res } = await this.$http.get(
+          `categories/${this.cateId}/attributes`,
+          {
+            params: { sel: 'only' }
+          }
+        )
         if (res.meta.status !== 200) {
           return this.$message.error('获取静态列表失败!')
         }
@@ -188,7 +248,7 @@ export default {
     },
     // 点击图片预览时触发
     handlePreview(file) {
-      this.previewPath = file.response.data.url.replace('http://127.0.0.1', 'https://lianghj.top')
+      this.previewPath = file.response.data.url
       this.previewDialogVisible = true
       console.log('预览图片', file.response.data.url)
     },
