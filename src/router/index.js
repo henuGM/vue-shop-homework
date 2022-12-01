@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 const Login = () => import(/* webpackChunkName: "login_home_welome" */ 'components/login/Login')
 const Home = () => import(/* webpackChunkName: "login_home_welome" */ 'components/home/Home')
-const Welcome = () => import(/* webpackChunkName: "login_home_welome" */ 'components/home/welcome/Welcome')
+// const Welcome = () => import(/* webpackChunkName: "login_home_welome" */ 'components/home/welcome/Welcome')
 
 const Users = () => import(/* webpackChunkName: "Users_Rights_Roles" */ 'components/home/users/Users')
 const Rights = () => import(/* webpackChunkName: "Users_Rights_Roles" */ 'components/home/power/rights/Rights')
@@ -30,12 +30,8 @@ const routes = [
   {
     path: '/home',
     component: Home,
-    redirect: '/welcome',
+    redirect: '/users',
     children: [
-      {
-        path: '/welcome',
-        component: Welcome
-      },
       {
         path: '/users',
         component: Users

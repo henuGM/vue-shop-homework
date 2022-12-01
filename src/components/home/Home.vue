@@ -80,22 +80,7 @@ export default {
         145: 'iconfont icon-baobiao'
       },
       isCollapse: false, // 是否折叠属性
-      activePath: '/welcome',
-      welcome: {
-        authName: '欢迎光临',
-        id: 147,
-        order: 1,
-        path: '/welcome',
-        children: [
-          {
-            authName: 'Welcome',
-            id: 124,
-            order: 1,
-            path: 'welcome',
-            children: []
-          }
-        ]
-      }
+      activePath: '/users'
     }
   },
   created() {
@@ -105,7 +90,7 @@ export default {
     if (path) {
       this.activePath = path
     } else {
-      this.activePath = '/welcome'
+      this.activePath = '/users'
     }
   },
   methods: {
@@ -118,7 +103,7 @@ export default {
       const { data: res } = await this.$http.get('/menus')
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       this.$message.success(res.meta.msg)
-      res.data.unshift(this.welcome)
+      // res.data.unshift(this.welcome)
       this.menuList = res.data
       console.log(res, 'menus')
     },
